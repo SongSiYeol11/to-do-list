@@ -13,6 +13,12 @@ function App() {
         //1. push를 쓰면 기존 배열을 건드므로 인식을 못할 수 있음
   }
 
+   // 삭제 함수 추가
+  const deleteItem = (index) => {
+    const newList = todoList.filter((_, i) => i !== index);
+    setTodoList(newList);
+  }
+
   return (
    <main>
     <input value = {inputValue}
@@ -22,7 +28,7 @@ function App() {
 
     <button onClick={addItem}>추가</button>
 
-   <TodoBoard todoList={todoList} />
+   <TodoBoard todoList={todoList}  deleteItem={deleteItem}  />
    </main>
   );
 }
